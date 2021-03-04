@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   layout :layout_by_resource
 
   def set_locale
-    I18n.locale = 'pt-BR'
+    I18n.locale = params[:lang] || I18n.default_locale
   end
 
   private
