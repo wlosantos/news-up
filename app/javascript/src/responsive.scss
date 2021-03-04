@@ -1,7 +1,7 @@
 #menubar {
 
   .navbar-end .icone, .navbar-link {
-    @include breakpoint(1023){
+    @include breakpoint(tablet-up){
       display: none;
     }
   }

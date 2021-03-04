@@ -16,7 +16,14 @@
         = link_to '#', class: 'navbar-item' do
           %i.far.fa-file-video.mr-2
           #{ t 'videos' }
+
       .navbar-end
+        .navbar-item
+          .field
+            .control.has-icons-right
+              %input.input.is-rounded.is-small{placeholder: "#{ t 'search' }"}
+              %span.icon.is-small.is-right
+                %i.fas.fa-search
         -if user_signed_in? && (current_user.kind == 'admin' || current_user.kind == 'manager')
           = link_to '#', class: 'navbar-item icone' do
             .social_count.px-2

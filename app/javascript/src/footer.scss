@@ -18,12 +18,16 @@ footer {
       text-align: center;
       border-right: 1px solid hsla(0, 0%, 98%, 0.54);
       padding-right: 2rem;
+      @include breakpoint(smartphone-up){
+        display: none;
+      }
     }
     .footer-content{
       flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 1rem;
     }
     .footer-social {
       width: 220px;
@@ -32,6 +36,10 @@ footer {
       align-items: center;
       border-left: 1px solid hsla(0, 0%, 98%, 0.54);
       padding-left: 2rem;
+      @include breakpoint(smartphone-up) {
+        border: none;
+        padding: 0px;
+      }
 
       a{
         text-align: center;
@@ -44,6 +52,12 @@ footer {
       small {
         font-size: .7rem;
       }
+    }
+
+    @include breakpoint(smartphone-up) {
+      flex-direction: column-reverse;
+      justify-content: center;
+      align-items: center;
     }
   }
 }
