@@ -1,0 +1,85 @@
+%nav.navbar.is-dark
+  .container
+    .navbar-brand
+      = link_to root_path, class: 'navbar-item' do
+        = image_tag 'news.png'
+        %h2.ml-4 news-up
+      .navbar-burger.burger{data:{target: 'menubar'}}
+        %span{aria:{hidden: 'true'}}
+        %span{aria:{hidden: 'true'}}
+        %span{aria:{hidden: 'true'}}
+    .navbar-menu#menubar
+      .navbar-start
+        = link_to posts_path, class: 'navbar-item' do
+          %i.far.fa-newspaper.mr-2
+          #{ t 'articles' }
+        = link_to '#', class: 'navbar-item' do
+          %i.far.fa-file-video.mr-2
+          #{ t 'videos' }
+
+      .navbar-end
+        .navbar-item
+          .field
+            .control.has-icons-right
+              %input.input.is-rounded.is-small{placeholder: "#{ t 'search' }"}
+              %span.icon.is-small.is-right
+                %i.fas.fa-search
+        -if user_signed_in? && (current_user.kind == 'admin' || current_user.kind == 'manager')
+          = link_to '#', class: 'navbar-item icone' do
+            .social_count.px-2
+              %i.fas.fa-comment
+              %span 99
+          = link_to '#', class: 'navbar-item icone' do
+            .social_count.px-2
+              %i.fas.fa-user
+              %span 5
+          .navbar-item.has-dropdown.is-hoverable.is-flex
+            = link_to '#', class: 'navbar-link' do
+              .profile
+                = get_avatar(current_user)
+              = current_user.username
+            .navbar-dropdown.is-right
+              -if current_user.kind == 'manager'
+                = link_to rails_admin_path, class: 'navbar-item' do
+                  %i.fas.fa-user-lock.mr-2
+                  #{ t 'administration' }
+              = link_to '#', class: 'navbar-item' do
+                %i.fas.fa-list.mr-2
+                #{ t 'profile' }
+              = link_to '#', class: 'navbar-item' do
+                %i.fas.fa-newspaper.mr-2
+                #{ t 'add_article' }
+              = link_to '#', class: 'navbar-item' do
+                %i.far.fa-file-video.mr-2
+                #{ t 'add_video' }
+              = link_to '#', class: 'navbar-item' do
+                %i.fas.fa-user.mr-2
+                #{ t 'edit_register' }
+              .navbar-divider
+              = link_to destroy_user_session_path, method: :delete, class: 'navbar-item', data: {confirm: "#{ t 'are_you_sure'}"} do
+                %i.fas.fa-door-open.mr-2
+                #{ t 'exit' }
+
+        - elsif user_signed_in?
+          .navbar-item.has-dropdown.is-hoverable.is-flex
+            = link_to '#', class: 'navbar-link' do
+              .profile
+                = get_avatar(current_user)
+              = current_user.username
+            .navbar-dropdown.is-right
+              = link_to '#', class: 'navbar-item' do
+                %i.fas.fa-user.mr-2
+                Editar Cadastro
+              .navbar-divider
+              = link_to destroy_user_session_path, method: :delete, class: 'navbar-item', data: {confirm: "#{ t 'are_you_sure'}"} do
+                %i.fas.fa-door-open.mr-2
+                Exit
+
+        - else
+          = link_to new_user_session_path, class: 'navbar-item is-small' do
+            %i.fas.fa-sign-in-alt.mr-2
+            #{ t 'login' }
+          .navbar-item
+            = link_to new_user_registration_path, class: 'button is-info is-small is-rounded' do
+              %i.fas.fa-pencil-alt.mr-2
+              #{ t 'signup' }

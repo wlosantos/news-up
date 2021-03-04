@@ -20,3 +20,14 @@ es:
   btnsign: 'Registrar'
   forgotyourpassword: 'Olvidaste tu contraseña?'
   resetpassword: 'Instrucciones para restablecer la contraseña'
+  search: buscar
+  #menu
+  articles: Artículo
+  videos: Videos
+  administration: Administración
+  profile: Perfil
+  add_article: 'Noevo Artículo'
+  add_video: 'Noevo Video'
+  edit_register: 'Editar Registro'
+  exit: Salir
+  are_you_sure: 'Estás seguro?'
