@@ -1,0 +1,12 @@
+.container
+  %h1.title neWSup
+  %p Find me in app/views/home/index.html.haml
+
+  %h2.subtitle.is-2
+  %br
+  - if !user_signed_in?
+    = link_to 'sing up', new_user_registration_path, class: 'button is-info'
+    = link_to 'sing in', new_user_session_path, class: 'button is-success'
+    = link_to 'edit profile', edit_user_registration_path, class: 'button is-warning'
+  - else
+    = link_to 'logout', destroy_user_session_path, method: :delete, class: 'button is-danger', data: {confirm: 'Are you sure?'}

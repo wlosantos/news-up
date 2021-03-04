@@ -1,0 +1,31 @@
+html { background-color: $color-background-base; }
+body {
+  background-color: $color-background-base;
+  height: 100vh;
+}
+
+h2, h3, h4, h5 { font-weight: 500; }
+
+h1{ font-size: 1.6rem; font-weight: 600; }
+h2{ font-size: 1.4rem; }
+h3{ font-size: 1.2rem; }
+h4{ font-size:   1rem; }
+h5{ font-size: 0.8rem; }
+a{ color: $color-link-clean; }
+
+.wrapper_content {
+  height: 100vh;
+  margin-top: 4px;
+  background: #fff;
+  display: flex;
+}
+.social_count {
+  position: relative;
+  span {
+    font-size: .7rem;
+    margin-left: 5px;
+    position: absolute;
+    top: 0;
+    color: $color-video;
+  }
+}

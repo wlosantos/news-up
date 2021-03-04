@@ -1,0 +1,33 @@
+pt-BR:
+  activerecord:
+    models:
+      user:
+        one: Usuário
+        other: Usuários
+
+    attributes:
+      default: &default
+        created_at: 'Criado em'
+        updated_at: 'Atualizado em'
+
+      user:
+        <<: *default
+        name: Nome
+        kind: 'Tipo de Acesso'
+  # form
+  login: Entrar
+  signup: 'Novo Cadastro'
+  btnsign: 'Cadastar'
+  forgotyourpassword: 'Esqueceu sua senha?'
+  resetpassword: 'Instruções para resetar a senha'
+  search: Pesquisa
+  #menu
+  articles: Artígos
+  videos: Vídeos
+  administration: Administração
+  profile: Perfil
+  add_article: 'Novo Artigo'
+  add_video: 'Novo Vídeo'
+  edit_register: 'Editar Cadastro'
+  exit: Sair
+  are_you_sure: 'Você tem certeza?'

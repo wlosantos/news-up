@@ -1,0 +1,26 @@
+%footer
+  .container
+    .footer-container
+      .footer-logo
+        = image_tag 'news.png', style: 'width: 60px'
+        %div
+          %h1.title.is-4.has-text-white workout-news
+      .footer-content
+        w3n design &copy; #{ Date.current.year }
+      .footer-social
+        = link_to '#' do
+          %i.fab.fa-facebook-square.fa-2x
+          %div
+            %small facebook
+        = link_to '#' do
+          %i.fab.fa-twitter-square.fa-2x
+          %div
+            %small twitter
+        = link_to '#' do
+          %i.fab.fa-instagram-square.fa-2x
+          %div
+            %small instagram
+        = link_to '#' do
+          %i.fab.fa-discord.fa-2x
+          %div
+            %small discord
