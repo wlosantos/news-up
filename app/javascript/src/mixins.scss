@@ -1,0 +1,43 @@
+@mixin breakpoint($point) {
+
+  @if $point == smartphone-only {
+    @media (min-width: 37.4375em) { // 599px
+      @content;
+    }
+  }
+
+  @else if $point == smartphone-up {
+    @media (max-width: 37.5em) { // 600px
+      @content;
+    }
+  }
+
+  @else if $point == tablet-only {
+    @media (min-width: 56.1875em) { // 899px
+      @content;
+    }
+  }
+
+  @else if $point == tablet-up {
+    @media (max-width: 56.25em) { // 900px
+       @content;
+    }
+  }
+
+  @else if $point == desktop-only { // 1199px
+    @media (min-width: 74.9375em) {
+      @content;
+    }
+  }
+
+  @else if $point == desktop-up {
+    @media (max-height: 75em) { // 1200px
+      @content;
+    }
+  }
+  @else {
+    @media (min-width: ($point / 16) + 'em') {
+      @content;
+    }
+  }
+}

@@ -14,3 +14,4 @@
   %body{:data => {:flash => {:messages => "#{JSON.dump(flash.to_a)}"}}}
     = render 'shared/menubar'
     = yield
+    = render 'shared/footer'

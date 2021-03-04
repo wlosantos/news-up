@@ -18,11 +18,11 @@
           #{ t 'videos' }
       .navbar-end
         -if user_signed_in? && (current_user.kind == 'admin' || current_user.kind == 'manager')
-          = link_to '#', class: 'navbar-item' do
+          = link_to '#', class: 'navbar-item icone' do
             .social_count.px-2
               %i.fas.fa-comment
               %span 99
-          = link_to '#', class: 'navbar-item' do
+          = link_to '#', class: 'navbar-item icone' do
             .social_count.px-2
               %i.fas.fa-user
               %span 5

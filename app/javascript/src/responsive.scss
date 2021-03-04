@@ -1,0 +1,9 @@
+#menubar {
+
+  .navbar-end .icone, .navbar-link {
+    @include breakpoint(1023){
+      display: none;
+    }
+  }
+
+}
