@@ -1,0 +1,11 @@
+.devise_form
+  %h2 #{ t 'forgot your password?' }
+  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+    .field
+      = f.label :email, class: 'label'
+      .control
+        = f.email_field :email, class: 'input', autofocus: true, autocomplete: "email"
+    .actions
+      = f.submit "Send me reset password instructions", class: 'button is-info'
+  .spacing
+    = render "devise/shared/links"

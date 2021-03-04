@@ -1,0 +1,40 @@
+@import "toastify-js/src/toastify.css";
+@import 'variables';
+@import 'custom';
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $color-background-base;
+  background-image: url('https://picsum.photos/800/600/?blur=3');
+  background-size: cover;
+  height: 100vh;
+}
+
+.wrapper_content {
+
+}
+
+.devise_form {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  position: relative;
+
+  h2{
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .label {
+    font-size: .8rem;
+    font-weight: 500;
+  }
+
+  .spacing {
+    margin-top: 10px;
+    text-align: center;
+    font-size: .9rem;
+  }
+}

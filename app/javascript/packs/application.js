@@ -2,6 +2,7 @@ import Rails from "@rails/ujs"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "packs/custom"
+import 'packs/flashMessages'
 
 Rails.start()
 ActiveStorage.start()
