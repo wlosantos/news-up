@@ -1,0 +1,22 @@
+es:
+  activerecord:
+    models:
+      user:
+        one: Usuario
+        other: Usuarios
+
+    attributes:
+      default: &default
+        created_at: 'Creado en'
+        updated_at: 'Actualizado'
+
+      user:
+        <<: *default
+        name: Nombre
+        kind: 'Tipo de Acesso'
+
+  login: Entra
+  signup: 'Nuevo Registro'
+  btnsign: 'Registrar'
+  forgotyourpassword: 'Olvidaste tu contraseña?'
+  resetpassword: 'Instrucciones para restablecer la contraseña'

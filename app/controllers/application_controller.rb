@@ -1,9 +1,14 @@
 class ApplicationController < ActionController::Base
 
+  before_action :set_locale
   before_action :authenticate_user!, except: [:index]
   before_action :configure_permited_parameters, if: :devise_controller?
 
   layout :layout_by_resource
+
+  def set_locale
+    I18n.locale = 'pt-BR'
+  end
 
   private
 
