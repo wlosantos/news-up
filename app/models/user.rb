@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts, dependent: :destroy
+  has_one_attached :avatar
 
   enum kind: [:user, :admin, :manager]
   enum status: [:active, :inactive]
