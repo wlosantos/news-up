@@ -10,4 +10,8 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :username, uniqueness: true
 
+  before_save do
+    self.username = username.downcase.split(' ').join()
+  end
+
 end
