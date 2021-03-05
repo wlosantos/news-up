@@ -6,8 +6,9 @@
         .grid_content
           - @posts.each do |post|
             .blog_container
-              .blog_header
-                = get_image(post)
+              = link_to post_path(post) do
+                .blog_header
+                  = get_image(post)
               .blog_main
                 .blog_main_header
                   .main_header_perfil
@@ -37,6 +38,10 @@
                     #{ truncate(strip_tags(post.body.to_s), length: 120) }
                 .blog_main_footer
                   .footer_tag
+                    - if post.tag_list.any?
+                      .tag_detail
+                        -# %strong Tags:
+                      #{ raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(' ') }
                   .footer_date.has-text-right
                     %span
                       #{ t 'by' } #{ post.user.name }

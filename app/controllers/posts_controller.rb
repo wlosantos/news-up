@@ -24,7 +24,7 @@ class PostsController < ApplicationController
         render :new
       end
     else
-      render :index 
+      render :index
     end
   end
 
@@ -48,7 +48,7 @@ class PostsController < ApplicationController
   end
 
   def post_param
-    params.require(:post).permit(:title, :body, :thumbnail, :upload, :type_subject)
+    params.require(:post).permit(:title, :body, :thumbnail, :upload, :type_subject, :tag_list)
   end
 
 end

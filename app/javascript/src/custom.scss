@@ -20,8 +20,13 @@ trix-editor {
 
 html { background-color: $color-background; }
 body {
-  background-color: $color-background;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
+  background-color: $color-background;
+  header{}
+  section{flex: 1}
+  footer{}
 }
 
 h2, h3, h4, h5 { font-weight: 500; }
