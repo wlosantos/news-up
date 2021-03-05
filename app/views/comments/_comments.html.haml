@@ -1,0 +1,25 @@
+.comment_list
+  - commenter.each do |comment|
+    .forlikes
+      .user_detail.mr-5
+        .user_image
+          = get_avatar(comment.user)
+        .user_description
+          %div #{ comment.user.name }
+          %span
+            %small.is-size-7.has-text-grey
+              #{ time_ago_in_words comment.created_at }
+      .comments_likes
+        .icones
+          .tags.has-addons
+            %span.tag
+              780 &nbsp;
+              %span
+                %i.fas.fa-thumbs-up
+            %span.tag
+              21 &nbsp;
+              %span
+                %i.fas.fa-thumbs-down
+
+    .detail_comments
+      %p #{ comment.commenter }

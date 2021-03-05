@@ -15,5 +15,12 @@
           .show_description
             %p #{ @post.body }
 
+          .post_comments
+            = render 'comments/form', origem: @post
+
+          - if @post.comments.any?
+            = render 'comments/comments', commenter: @post.comments
+
         .grid_aside
+          = render 'users/perfil_follow', profile: @post.user
           = render 'shared/tags'

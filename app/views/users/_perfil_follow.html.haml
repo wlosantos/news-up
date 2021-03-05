@@ -1,0 +1,13 @@
+.aside_container.mb-3
+  .titles
+    %i.fas.fa-pencil-alt
+    #{ t 'author' }
+  .user_detail
+    .user_image
+      = get_avatar(profile)
+    .user_description
+      %div
+        #{ profile.name }
+      %span
+        = link_to '#' do
+          @#{ profile.username }

@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   # get '/articles', to: 'posts#index', param: :post
   # get '/videos', to: 'posts#index', param: :video
   get 'tags/:tag', to: 'posts#index', as: :tag
+
+  resources :comments, only: %i[ create updade destroy ]
 end
