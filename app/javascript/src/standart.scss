@@ -81,6 +81,7 @@
                 padding: 2px 5px;
                 border-left: 2px solid $color-link-clean;
                 margin-right: 3px;
+                margin-bottom: 3px;
               }
 
             }
@@ -131,4 +132,39 @@
 .wrapper_form {
   min-height: 80vh;
   background: #fff;
+}
+
+.grid_aside {
+  margin-left: 15px;
+
+  .aside_container {
+    background: #fff;
+    // min-height: 220px;
+    border-radius: 5px;
+    padding: 3px;
+    padding-bottom: 10px;
+
+    .titles {
+      border-radius: 5px;
+      background: $color-background-base;
+      padding: 5px;
+      font-size: .8rem;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+  }
+
+  .tag_cloud {
+      font-size: .8rem;
+    a {
+      background: #eee;
+      padding: 2px 5px;
+      // border-left: 2px solid $color-link-clean;
+      margin-right: 3px;
+      margin-bottom: 3px;
+    }
+    .s{border-left: 2px solid $color-destaque;}
+    .m{border-left: 2px solid $color-link-clean;}
+    .l{border-left: 2px solid $color-grey-dark;}
+  }
 }
