@@ -33,7 +33,7 @@
         img { height: 220px; width: 100%; }
         .blog_image {
           border-radius: 5px 5px 0 0;
-          background-size: cover;
+          object-fit: cover;
         }
       }
 

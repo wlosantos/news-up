@@ -9,4 +9,13 @@ module ApplicationHelper
     image_tag avatar, class: css_class
   end
 
+  def get_image(post)
+    if post.upload.attached?
+      image = post.upload
+    else
+      image = "base_education.jpg"
+    end
+    image_tag image, class: 'blog_image'
+  end
+
 end

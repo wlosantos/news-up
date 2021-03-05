@@ -4,42 +4,43 @@
     .wrapper_content
       .wrapper_grids
         .grid_content
-          .blog_container
-            .blog_header
-              = image_tag 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/17779/yosemite-3.jpg', class: 'blog_image'
-            .blog_main
-              .blog_main_header
-                .main_header_perfil
-                .main_header_comments
-                  #icons.mr-2
-                    .tags.has-addons
-                      %span.tag
-                        780 &nbsp;
-                        %span
-                          %i.fas.fa-thumbs-up
-                      %span.tag
-                        21 &nbsp;
-                        %span
-                          %i.fas.fa-thumbs-down
-                      -# %span.tag
-                        Share &nbsp;
-                        %span
-                          %i.fas.fa-retweet
-                      %span.tag
-                        544 Comments &nbsp;
-                        %span
-                          %i.fas.fa-comment-alt
-              .blog_main_content
-                %h3.titles
-                  Desenvolvendo um bom relacionamento!!!
-                %p
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              .blog_main_footer
-                .footer_tag
-                .footer_date.has-text-right
-                  %span
-                    por Wendel Lopes
-                  %span
-                    18 de abril, 2021
+          - @posts.each do |post|
+            .blog_container
+              .blog_header
+                = get_image(post)
+              .blog_main
+                .blog_main_header
+                  .main_header_perfil
+                  .main_header_comments
+                    #icons.mr-2
+                      .tags.has-addons
+                        %span.tag
+                          780 &nbsp;
+                          %span
+                            %i.fas.fa-thumbs-up
+                        %span.tag
+                          21 &nbsp;
+                          %span
+                            %i.fas.fa-thumbs-down
+                        -# %span.tag
+                          Share &nbsp;
+                          %span
+                            %i.fas.fa-retweet
+                        %span.tag
+                          544 Comments &nbsp;
+                          %span
+                            %i.fas.fa-comment-alt
+                .blog_main_content
+                  %h3.titles
+                    #{ post.title }
+                  %p
+                    #{ truncate(strip_tags(post.body.to_s), length: 120) }
+                .blog_main_footer
+                  .footer_tag
+                  .footer_date.has-text-right
+                    %span
+                      #{ t 'by' } #{ post.user.name }
+                    %span
+                      #{ l post.created_at, format: :long }
         .grid_aside
           barra direita
