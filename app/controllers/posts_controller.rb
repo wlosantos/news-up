@@ -1,11 +1,32 @@
 class PostsController < ApplicationController
 
+  before_action :set_post, only: %i[ show edit update destroy ]
+
   def index
     if params[:tag]
       @posts = Post.tagged_with(params[:tag]).order(created_at: :desc)
     else
       @posts = Post.all
     end
+  end
+
+  def list_posts
+    if params[:tag]
+      @posts = Post.tagged_with(params[:tag]).order(created_at: :desc)
+    else
+      @posts = Post.listposts
+    end
+  end
+
+  def list_videos
+    if params[:tag]
+      @posts = Post.tagged_with(params[:tag]).order(created_at: :desc)
+    else
+      @posts = Post.listvideos
+    end
+  end
+
+  def list_video
   end
 
   def show

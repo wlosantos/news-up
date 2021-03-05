@@ -3,5 +3,17 @@
   .container
     .wrapper_content
       .wrapper_grids
-        .grid_content
-          = params.inspect
+        .show_content
+          %h1 #{ @post.title }
+          .show_dates.mb-5
+            #{ l @post.created_at, format: :long }
+          = render 'users/avatar', profile: @post.user
+          - if @post.upload.attached?
+            .show_image
+              #{ image_tag @post.upload, class: 'img_show' }
+
+          .show_description
+            %p #{ @post.body }
+
+        .grid_aside
+          = render 'shared/tags'
