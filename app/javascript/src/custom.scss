@@ -1,6 +1,26 @@
-html { background-color: $color-background-base; }
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
+@import "trix/dist/trix";
+
+// .trix-button-group.trix-button-group--block-tools,
+.trix-button-group.trix-button-group--file-tools,
+.trix-button-group.trix-button-group--history-tools {
+  display: none;
+}
+
+trix-editor {
+  &.form-control {
+    min-height: 20rem;
+    height: auto;
+  }
+}
+
+.trix-content h1 {
+  font-weight: 600;
+}
+
+html { background-color: $color-background; }
 body {
-  background-color: $color-background-base;
+  background-color: $color-background;
   height: 100vh;
 }
 
@@ -12,20 +32,3 @@ h3{ font-size: 1.2rem; }
 h4{ font-size:   1rem; }
 h5{ font-size: 0.8rem; }
 a{ color: $color-link-clean; }
-
-.wrapper_content {
-  height: 100vh;
-  margin-top: 4px;
-  background: #fff;
-  display: flex;
-}
-.social_count {
-  position: relative;
-  span {
-    font-size: .7rem;
-    margin-left: 5px;
-    position: absolute;
-    top: 0;
-    color: $color-video;
-  }
-}

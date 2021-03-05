@@ -10,10 +10,10 @@
         %span{aria:{hidden: 'true'}}
     .navbar-menu#menubar
       .navbar-start
-        = link_to posts_path, class: 'navbar-item' do
+        = link_to :articles, class: 'navbar-item' do
           %i.far.fa-newspaper.mr-2
           #{ t 'articles' }
-        = link_to '#', class: 'navbar-item' do
+        = link_to :videos, class: 'navbar-item' do
           %i.far.fa-file-video.mr-2
           #{ t 'videos' }
 
@@ -46,10 +46,10 @@
               = link_to '#', class: 'navbar-item' do
                 %i.fas.fa-list.mr-2
                 #{ t 'profile' }
-              = link_to '#', class: 'navbar-item' do
+              = link_to new_post_path(type_subject: :post), class: 'navbar-item' do
                 %i.fas.fa-newspaper.mr-2
                 #{ t 'add_article' }
-              = link_to '#', class: 'navbar-item' do
+              = link_to new_post_path(type_subject: :video), class: 'navbar-item' do
                 %i.far.fa-file-video.mr-2
                 #{ t 'add_video' }
               = link_to '#', class: 'navbar-item' do

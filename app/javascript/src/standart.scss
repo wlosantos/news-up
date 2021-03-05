@@ -1,0 +1,122 @@
+.wrapper_content {
+  height: 100vh;
+  display: flex;
+
+  .wrapper_grids{
+    flex: 1;
+    display: flex;
+
+    .grid_aside {
+      width: 220px;
+    }
+  }
+
+  .grid_content {
+    flex: 1;
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-gap: 15px;
+
+    .blog_container {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: hsla(0, 0, 0, .2) 0 4px 2px -2px;
+      height: 480px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+
+      .blog_header{
+        position: relative;
+
+        img { height: 220px; width: 100%; }
+        .blog_image {
+          border-radius: 5px 5px 0 0;
+          background-size: cover;
+        }
+      }
+
+      .blog_main {
+        flex: 1;
+        margin-top: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        .blog_main_header{
+          display: flex;
+          justify-content: space-between;
+
+          .tag {
+            border: 1px solid #e3e3e3;
+          }
+        }
+
+        .blog_main_content{
+          flex: 1;
+
+          .titles {
+            font-family: 'Open Sans Condensed', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            text-align: center;
+            padding: 10px 15px;
+          }
+
+          p {
+            font-family: 'Open Sans Condensed', sans-serif;
+            padding:0px 15px 10px 15px;
+          }
+        }
+
+        .blog_main_footer{
+          min-height: 40px;
+          margin: 5px 15px 10px 15px;
+
+          .footer_tag{
+            padding-bottom: 5px;
+            text-align: center;
+          }
+
+          .footer_date {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #ddd;
+            padding: 10px 0 0 0;
+            font-family: 'Open Sans Condensed', sans-serif;
+            font-size: .8rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.social_count {
+  position: relative;
+  span {
+    font-size: .7rem;
+    margin-left: 5px;
+    position: absolute;
+    top: 0;
+    color: $color-video;
+  }
+}
+
+.wrapper_banner {
+  margin-top: 4px;
+  min-height: 220px;
+  background-color: $color-background;
+  overflow: hidden;
+  img{ height: 230px; width: 100%}
+  .fig{
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
+.wrapper_form {
+  min-height: 80vh;
+  background: #fff;
+}

@@ -4,6 +4,9 @@ pt-BR:
       user:
         one: Usuário
         other: Usuários
+      post:
+        one: Artigo
+        other: Artigos
 
     attributes:
       default: &default
@@ -14,6 +17,12 @@ pt-BR:
         <<: *default
         name: Nome
         kind: 'Tipo de Acesso'
+      post:
+        <<: *default
+        title: Título
+        body: 'Descrição'
+        upload: 'Arquivo'
+        thumbnail: 'Thumbnail'
   # form
   login: Entrar
   signup: 'Novo Cadastro'
@@ -22,8 +31,11 @@ pt-BR:
   resetpassword: 'Instruções para resetar a senha'
   search: Pesquisa
   #menu
+  article: Artigo
   articles: Artígos
+  video: Vídeo
   videos: Vídeos
+  image: Imagem
   administration: Administração
   profile: Perfil
   add_article: 'Novo Artigo'

@@ -4,6 +4,8 @@ import "channels"
 import "packs/custom"
 import 'packs/flashMessages'
 import 'packs/user'
+require("trix")
+require("@rails/actiontext")
 
 Rails.start()
 ActiveStorage.start()
