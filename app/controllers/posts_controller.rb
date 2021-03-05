@@ -15,12 +15,16 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params.merge[user_id: current_user])
-    if @post.save
-      redirect_to @post, notice: 'Post created successfully!!!'
+    @post = Post.new(post_param.merge(user: current_user))
+    if current_user.kind == 'admin' || current_user.kind == 'manager'
+      if @post.save
+        redirect_to @post, notice: 'Post created successfully!!!'
+      else
+        flash.now[:alert] = @post.errors.full_messages.to_sentence
+        render :new
+      end
     else
-      flash.now[:alert] = @post.errors.full_messages.to_sentence
-      render :new
+      render :index 
     end
   end
 
@@ -44,7 +48,7 @@ class PostsController < ApplicationController
   end
 
   def post_param
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :thumbnail, :upload, :type_subject)
   end
 
 end
