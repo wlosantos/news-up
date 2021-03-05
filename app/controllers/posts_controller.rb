@@ -1,7 +1,11 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all
+    if params[:tag]
+      @posts = Post.tagged_with(params[:tag]).order(created_at: :desc)
+    else
+      @posts = Post.all
+    end
   end
 
   def show
@@ -24,7 +28,7 @@ class PostsController < ApplicationController
         render :new
       end
     else
-      render :index 
+      render :index
     end
   end
 
@@ -48,7 +52,7 @@ class PostsController < ApplicationController
   end
 
   def post_param
-    params.require(:post).permit(:title, :body, :thumbnail, :upload, :type_subject)
+    params.require(:post).permit(:title, :body, :thumbnail, :upload, :type_subject, :tag_list)
   end
 
 end

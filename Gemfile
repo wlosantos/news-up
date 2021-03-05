@@ -15,10 +15,10 @@ gem 'devise'
 gem 'devise-i18n', '~> 1.9', '>= 1.9.2'
 # gem 'rails-i18n'
 
-# gem "acts-as-taggable-on", "~> 7.0"
+gem "acts-as-taggable-on", "~> 7.0"
 # gem "active_storage_validations", "~> 0.9.2"
-# gem "mini_magick"
-# gem 'image_processing', '~>1.2'
+gem "mini_magick"
+gem 'image_processing', '~>1.2'
 
 
 gem 'bootsnap', '>= 1.4.4', require: false
