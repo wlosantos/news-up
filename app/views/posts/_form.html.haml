@@ -7,6 +7,10 @@
     .control
       = form.text_field :title, class: 'input'
   .field
+    = form.label :tag_list, "Tags (separe as tags com virgulas)", class: 'label'
+    .control
+      = form.text_field :tag_list, class: 'input'
+  .field
     = form.label :body, class: 'label'
     .control
       = form.rich_text_area :body, style: 'min-height: 600px; height: auto'
