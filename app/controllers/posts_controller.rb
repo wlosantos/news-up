@@ -72,15 +72,14 @@ class PostsController < ApplicationController
   def search
     # TODO: Refaturar a pesquisa em categoria
     if params[:q] != '' || params[:q] != nil
+
       @posts = Post.search(params[:q])
-      if params[:action] == 'list_videos'
-        render :list_videos
-      else
-        render :list_posts
-      end
+      render :list_posts
+
     else
       render :list_posts
     end
+
   end
 
   def destroy
