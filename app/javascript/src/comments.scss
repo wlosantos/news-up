@@ -1,0 +1,43 @@
+.card_comments {
+
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .comment_form {
+    width: 560px;
+    height: auto;
+  }
+
+  .icones .tag {
+    border: 1px solid #ddd;
+  }
+
+}
+
+.comment_list {
+  background: #fafafa;
+  font-size: .8rem;
+  padding: 10px;
+  margin-top: 1rem;
+
+  .detail_comments {
+    padding: 15px;
+    margin: 0 2rem 1rem 2rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  .forlikes {
+    display: flex;
+    justify-content:flex-start;
+    align-items: flex-start;
+  }
+
+  .comments_likes {
+    .tag {
+      border: 1px solid #ddd;
+    }
+  }
+}

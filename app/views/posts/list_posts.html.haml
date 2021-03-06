@@ -16,19 +16,15 @@
                     .icones.mr-2
                       .tags.has-addons
                         %span.tag
-                          780 &nbsp;
+                          #{ post.get_upvotes.size } &nbsp;
                           %span
                             %i.fas.fa-thumbs-up
                         %span.tag
-                          21 &nbsp;
+                          #{ post.get_downvotes.size } &nbsp;
                           %span
                             %i.fas.fa-thumbs-down
-                        -# %span.tag
-                          Share &nbsp;
-                          %span
-                            %i.fas.fa-retweet
                         %span.tag
-                          544 Comments &nbsp;
+                          #{ post.comments.count } &nbsp;
                           %span
                             %i.fas.fa-comment-alt
                 .blog_main_content
@@ -48,8 +44,4 @@
                     %span
                       #{ l post.created_at, format: :long }
         .grid_aside
-          .aside_container
-            .titles
-              %i.fas.fa-tags
-              tags
-            = render 'shared/tags'
+          = render 'shared/tags'

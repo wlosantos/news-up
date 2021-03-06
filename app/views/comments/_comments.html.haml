@@ -1,0 +1,26 @@
+.comment_list
+  - commenter.each do |comment|
+    .forlikes
+      .user_detail.mr-5
+        .user_image
+          = get_avatar(comment.user)
+        .user_description
+          %div #{ comment.user.name }
+          %span
+            %small.is-size-7.has-text-grey
+              #{ time_ago_in_words comment.created_at }
+      .comments_likes
+        .show_votable
+          .icones
+            .tags.has-addons
+              = link_to like_comment_path(comment), method: :put, class: 'tag like' do
+                = comment.get_upvotes.size
+                %span.ml-2
+                  %i.fas.fa-thumbs-up
+              = link_to unlike_comment_path(comment), method: :put, class: 'tag like' do
+                = comment.get_downvotes.size
+                %span.ml-2
+                  %i.fas.fa-thumbs-down
+
+    .detail_comments
+      %p #{ comment.commenter }

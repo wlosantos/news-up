@@ -25,24 +25,24 @@
         .field
           = form.label "#{ t 'image' }", class: 'label'
           .control
-            = form.file_field :upload
+            = form.file_field :upload, require: true
   - else
     .columns
-      - if params[:action] == 'edit' && streaming.tumbnail.attached?
+      - if params[:action] == 'edit' && post.upload.attached?
         .column.is-2
           .image_edit.has-text-right
             %span
-              = image_tag streaming.tumbnail
+              = image_tag post.upload
       .column
         .field
-          = form.label :thumbnail, class: 'label'
+          = form.label :streaming, class: 'label'
           .control
-            = form.file_field :thumbnail
+            = form.file_field :streaming
       .column
         .field
-          = form.label "#{t 'video'}", class: 'label'
+          = form.label "#{t 'image'}", class: 'label'
           .control
-            = form.file_field :upload
+            = form.file_field :upload, require: true
 
   .field.has-text-right.mb-5
-    = form.submit "#{ t 'add_article' }", class: 'button is-info'
+    = form.submit "#{ t 'confirm' }", class: 'button is-info'

@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+  before_action :set_post, only: %i[ show edit update destroy upvote downvote]
+
   def index
     if params[:tag]
       @posts = Post.tagged_with(params[:tag]).order(created_at: :desc)
@@ -8,7 +10,24 @@ class PostsController < ApplicationController
     end
   end
 
+  def list_posts
+    if params[:tag]
+      @posts = Post.tagged_with(params[:tag]).order(created_at: :desc)
+    else
+      @posts = Post.listposts
+    end
+  end
+
+  def list_videos
+    if params[:tag]
+      @posts = Post.tagged_with(params[:tag]).order(created_at: :desc)
+    else
+      @posts = Post.listvideos
+    end
+  end
+
   def show
+    @comment = Comment.new
   end
 
   def edit
@@ -40,6 +59,29 @@ class PostsController < ApplicationController
     end
   end
 
+  def upvote
+    @post.upvote_from current_user
+    redirect_to @post
+  end
+
+  def downvote
+    @post.downvote_from current_user
+    redirect_to @post
+  end
+
+  def search
+    # TODO: Refaturar a pesquisa em categoria
+    if params[:q] != '' || params[:q] != nil
+
+      @posts = Post.search(params[:q])
+      render :list_posts
+
+    else
+      render :list_posts
+    end
+
+  end
+
   def destroy
     @post.destroy
     redirect_to posts_path
@@ -52,7 +94,7 @@ class PostsController < ApplicationController
   end
 
   def post_param
-    params.require(:post).permit(:title, :body, :thumbnail, :upload, :type_subject, :tag_list)
+    params.require(:post).permit(:title, :body, :streaming, :upload, :type_subject, :tag_list)
   end
 
 end

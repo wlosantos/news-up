@@ -1,3 +1,5 @@
-name = ' Wendel Lopes '
+name = ''
 
-puts name.downcase.split(' ').join()
+if name == "" || name == nil
+  puts 'entrou'
+end

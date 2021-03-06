@@ -16,6 +16,7 @@ gem 'devise-i18n', '~> 1.9', '>= 1.9.2'
 # gem 'rails-i18n'
 
 gem "acts-as-taggable-on", "~> 7.0"
+gem 'acts_as_votable', '~> 0.13.1'
 # gem "active_storage_validations", "~> 0.9.2"
 gem "mini_magick"
 gem 'image_processing', '~>1.2'
@@ -43,3 +44,5 @@ end
 group :production do
   gem 'pg'
 end
+
+gem "ransack", "~> 2.4"

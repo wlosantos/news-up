@@ -1,5 +1,9 @@
-.post_tags
-  .tag_cloud
-    - tag_cloud Post.tag_counts, %i[ s m l ] do |tag, css_class|
-      %span
-        = link_to tag.name, tag_path(tag.name), class: css_class
+.aside_container
+  .titles
+    %i.fas.fa-tags
+    tags
+  .post_tags
+    .tag_cloud
+      - tag_cloud Post.tag_counts, %i[ s m l ] do |tag, css_class|
+        %span
+          = link_to tag.name, tag_path(tag.name), class: css_class

@@ -1,0 +1,43 @@
+.show_content {
+  flex: 1;
+  background: #fff;
+  border-radius: 5px;
+  padding: 2rem;
+
+  .show_dates {
+    font-size: .9rem;
+    color: $color-grey-clean;
+  }
+
+  .show_image {
+    margin-top: 10px;
+
+    img { height: 320px; width: auto; }
+    .img_show {
+      // object-fit: contain;
+    }
+  }
+
+  .show_votable {
+    .icones .tag {
+      border: 1px solid #ddd;
+    }
+
+    .like {
+      font-size: .75rem;
+      font-weight: 600;
+      text-decoration: none;
+
+      &:hover {
+        color: $color-link-clean;
+      }
+    }
+  }
+
+  .show_description {
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 2rem;
+  }
+}

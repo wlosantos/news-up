@@ -4,7 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  acts_as_voter
+
   has_many :posts, dependent: :destroy
+  has_many :comments
   has_one_attached :avatar
 
   enum kind: [:user, :admin, :manager]
@@ -15,6 +18,10 @@ class User < ApplicationRecord
 
   before_save do
     self.username = username.downcase.split(' ').join()
+  end
+
+  def total_comments
+    self.posts.joins(:comments).count
   end
 
 end
