@@ -9,13 +9,13 @@ module ApplicationHelper
     image_tag avatar, class: css_class
   end
 
-  def get_image(post)
+  def get_image(post, css_class = 'blog_image')
     if post.upload.attached?
       image = post.upload
     else
       image = "base_education.jpg"
     end
-    image_tag image, class: 'blog_image'
+    image_tag image, class: css_class
   end
 
   def get_image_video(post)

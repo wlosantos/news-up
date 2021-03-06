@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_one_attached :upload
-  has_one_attached :thumbnail
+  has_one_attached :streaming
   has_rich_text :body
   acts_as_taggable_on :tags
 
@@ -14,6 +14,8 @@ class Post < ApplicationRecord
 
   scope :listposts, -> { where(type_subject: :post) }
   scope :listvideos, -> { where(type_subject: :video) }
+
+  validates :upload, presence: true
 
   def total_comments
     self.comments.where(status: :pending).count

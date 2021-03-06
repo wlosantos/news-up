@@ -8,7 +8,7 @@
             .video_container
               = link_to post_path(post) do
                 .video_thumbnail
-                  = get_thumbnail(post)
+                  = get_image(post, 'adjust_image')
               .video_description
                 .video_avatar
                   = get_avatar(post.user)
