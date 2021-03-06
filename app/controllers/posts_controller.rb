@@ -26,9 +26,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def list_video
-  end
-
   def show
     @comment = Comment.new
   end
@@ -70,6 +67,16 @@ class PostsController < ApplicationController
   def downvote
     @post.downvote_from current_user
     redirect_to @post
+  end
+
+  def search
+    # TODO: Refaturar a pesquisa em categoria
+    @posts = Post.where("title LIKE ?", "%" + params[:q] + "%")
+    if params[:action] == 'list_videos'
+      render :list_videos
+    else
+      render :list_posts
+    end
   end
 
   def destroy

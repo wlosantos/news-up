@@ -9,7 +9,8 @@ Rails.application.routes.draw do
       put 'unlike', to: 'posts#downvote'
     end
   end
-  
+
+  get '/search', to: 'posts#search'
   get '/list_posts', to: 'posts#list_posts'
   get '/list_videos', to: 'posts#list_videos'
   get 'tags/:tag', to: 'posts#index', as: :tag

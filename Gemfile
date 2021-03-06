@@ -44,3 +44,5 @@ end
 group :production do
   gem 'pg'
 end
+
+gem "ransack", "~> 2.4"

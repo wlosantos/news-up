@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
   before_action :set_locale
-  before_action :authenticate_user!, except: [ :index, :list_posts, :list_videos, :show ]
+  before_action :authenticate_user!, except: [ :index, :list_posts, :list_videos, :show, :search ]
   before_action :configure_permited_parameters, if: :devise_controller?
 
   layout :layout_by_resource

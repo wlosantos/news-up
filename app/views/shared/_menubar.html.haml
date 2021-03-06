@@ -19,11 +19,15 @@
 
       .navbar-end
         .navbar-item
-          .field
-            .control.has-icons-right
-              %input.input.is-rounded.is-small{placeholder: "#{ t 'search' }"}
-              %span.icon.is-small.is-right
-                %i.fas.fa-search
+
+          %form{action: '/search', method: :get}
+            .field.has-addons.has-addons-right
+              .control
+                %input.input{type: 'text', name: 'q', placeholder: "#{ t 'search' }", class: 'is-small is-rounded'}
+              .control
+                %button.button.is-small.is-info.is-rounded{type: 'submit'}
+                  %i.fas.fa-search
+
         -if user_signed_in? && (current_user.kind == 'admin' || current_user.kind == 'manager')
           = link_to '#', class: 'navbar-item icone' do
             .social_count.px-2
