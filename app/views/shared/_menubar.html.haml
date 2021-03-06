@@ -88,3 +88,7 @@
             = link_to new_user_registration_path, class: 'button is-info is-small is-rounded' do
               %i.fas.fa-pencil-alt.mr-2
               #{ t 'signup' }
+
+        .navbar-item
+          - if user_signed_in?
+            language_user(current_user.language)

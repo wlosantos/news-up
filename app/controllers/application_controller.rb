@@ -17,8 +17,8 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permited_parameters
-    devise_parameter_sanitizer.permit :sign_up, keys: %i[ name username kind status ]
-    devise_parameter_sanitizer.permit :account_update, keys: %i[ name avatar ]
+    devise_parameter_sanitizer.permit :sign_up, keys: %i[ name username kind status language]
+    devise_parameter_sanitizer.permit :account_update, keys: %i[ name avatar language]
   end
 
 end

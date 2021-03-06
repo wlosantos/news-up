@@ -12,6 +12,7 @@ class User < ApplicationRecord
 
   enum kind: [:user, :admin, :manager]
   enum status: [:active, :inactive]
+  enum language: ['pt-BR','es','en']
 
   validates :name, presence: true
   validates :username, uniqueness: true
