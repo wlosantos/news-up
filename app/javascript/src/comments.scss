@@ -11,6 +11,10 @@
     height: auto;
   }
 
+  .icones .tag {
+    border: 1px solid #ddd;
+  }
+
 }
 
 .comment_list {
@@ -26,7 +30,6 @@
   }
 
   .forlikes {
-    height: 80px;
     display: flex;
     justify-content:flex-start;
     align-items: flex-start;

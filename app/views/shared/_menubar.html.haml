@@ -28,11 +28,12 @@
           = link_to '#', class: 'navbar-item icone' do
             .social_count.px-2
               %i.fas.fa-comment
-              %span 99
+              %span
+                #{ current_user.total_comments }
           = link_to '#', class: 'navbar-item icone' do
             .social_count.px-2
               %i.fas.fa-user
-              %span 5
+              %span 0
           .navbar-item.has-dropdown.is-hoverable.is-flex
             = link_to '#', class: 'navbar-link' do
               .profile

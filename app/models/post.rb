@@ -13,4 +13,8 @@ class Post < ApplicationRecord
   scope :listposts, -> { where(type_subject: :post) }
   scope :listvideos, -> { where(type_subject: :video) }
 
+  def total_comments
+    self.comments.where(status: :pending).count
+  end
+
 end

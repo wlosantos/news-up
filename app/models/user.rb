@@ -18,4 +18,8 @@ class User < ApplicationRecord
     self.username = username.downcase.split(' ').join()
   end
 
+  def total_comments
+    self.posts.joins(:comments).count
+  end
+
 end
