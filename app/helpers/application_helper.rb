@@ -27,13 +27,13 @@ module ApplicationHelper
     image_tag image, class: 'blog_image'
   end
 
-  def get_thumbnail(video)
+  def get_thumbnail(video, css_class = 'adjust_image')
     if video.thumbnail.attached?
       image = video.thumbnail
     else
       image = "video.jpg"
     end
-    image_tag image, class: 'adjust_image'
+    image_tag image, class: css_class
   end
 
 end

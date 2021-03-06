@@ -23,4 +23,10 @@ class Post < ApplicationRecord
     where("title LIKE ?", "%" + search + "%")
   end
 
+  before_save do
+    if self.thumbnail == nil
+      self.thumbnail == 'video.jpg'
+    end 
+  end
+
 end

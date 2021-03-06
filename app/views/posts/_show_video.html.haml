@@ -1,3 +1,4 @@
+%link{href: "https://vjs.zencdn.net/7.10.2/video-js.css", rel: "stylesheet"}
 %main
   = render 'shared/banner'
   .container
@@ -11,8 +12,14 @@
             %div
               = render 'users/avatar', profile: @post.user
               - if @post.upload.attached?
-                .show_image
-                  #{ image_tag @post.upload, class: 'img_show' }
+                .streaming_container.has-text-centered
+                  %span
+                    - if @post.thumbnail.persisted?
+                      %video{id: "my-video", class: "video-js", controls: '', preload: "auto", width: "640", height: "", poster: "#{url_for(@post.thumbnail)}", data:{setup:"{}"}}
+                        %source{src: "#{url_for(@post.upload)}", type: "video/mp4"}
+                    - else
+                      %video{id: "my-video", class: "video-js", controls: '', preload: "auto", width: "640", height: "", poster: "#{url_for(image_tag 'video.jpg')}", data:{setup:"{}"}}
+                        %source{src: "#{url_for(@post.upload)}", type: "video/mp4"}
             %div
               .icones.mt-4
                 .tags.has-addons
@@ -42,3 +49,5 @@
         .grid_aside
           = render 'users/perfil_follow', profile: @post.user
           = render 'shared/tags'
+
+%script{src: "https://vjs.zencdn.net/7.10.2/video.min.js"}
