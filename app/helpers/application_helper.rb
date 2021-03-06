@@ -18,4 +18,22 @@ module ApplicationHelper
     image_tag image, class: 'blog_image'
   end
 
+  def get_image_video(post)
+    if post.thumbnail.attached?
+      image = post.thumbnail
+    else
+      image = "base_education.jpg"
+    end
+    image_tag image, class: 'blog_image'
+  end
+
+  def get_thumbnail(video)
+    if video.thumbnail.attached?
+      image = video.thumbnail
+    else
+      image = "video.jpg"
+    end
+    image_tag image, class: 'adjust_image'
+  end
+
 end

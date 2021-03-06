@@ -3,49 +3,38 @@
   .container
     .wrapper_content
       .wrapper_grids
-        .grid_content
+        .grid_content.has-background-white{style: 'border-radius: 5px; padding: 1rem'}
           - @posts.each do |post|
-            .blog_container
+            .video_container
               = link_to post_path(post) do
-                .blog_header
-                  = get_image(post)
-              .blog_main
-                .blog_main_header
-                  .main_header_perfil
-                  .main_header_comments
+                .video_thumbnail
+                  = get_thumbnail(post)
+              .video_description
+                .video_avatar
+                  = get_avatar(post.user)
+                .video_detail.ml-3
+                  %div{style: 'flex: 1'}
+                    .video_title
+                      = truncate post.title, length: 50
+                    .video_author
+                      = post.user.name
+                    .video_published
+                      = time_ago_in_words post.created_at
+                  .video_social
                     .icones.mr-2
                       .tags.has-addons
                         %span.tag
-                          780 &nbsp;
+                          #{ post.get_upvotes.size } &nbsp;
                           %span
                             %i.fas.fa-thumbs-up
                         %span.tag
-                          21 &nbsp;
+                          #{ post.get_downvotes.size } &nbsp;
                           %span
                             %i.fas.fa-thumbs-down
-                        -# %span.tag
-                          Share &nbsp;
-                          %span
-                            %i.fas.fa-retweet
                         %span.tag
-                          544 Comments &nbsp;
+                          #{ post.comments.count } &nbsp;
                           %span
                             %i.fas.fa-comment-alt
-                .blog_main_content
-                  %h3.titles
-                    #{ post.title }
-                  %p
-                    #{ truncate(strip_tags(post.body.to_s), length: 120) }
-                .blog_main_footer
-                  .footer_tag
-                    - if post.tag_list.any?
-                      .tag_detail
-                        -# %strong Tags:
-                      #{ raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(' ') }
-                  .footer_date.has-text-right
-                    %span
-                      #{ t 'by' } #{ post.user.name }
-                    %span
-                      #{ l post.created_at, format: :long }
+
         .grid_aside
           = render 'shared/tags'

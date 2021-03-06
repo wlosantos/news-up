@@ -1,4 +1,4 @@
--# %main
+%main
   = render 'shared/banner'
   .container
     .wrapper_content
@@ -42,7 +42,3 @@
         .grid_aside
           = render 'users/perfil_follow', profile: @post.user
           = render 'shared/tags'
-- if @post.type_subject == 'post'
-  = render 'show_post'
-- else
-  = render 'show_video'
