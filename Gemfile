@@ -46,3 +46,4 @@ group :production do
 end
 
 gem "ransack", "~> 2.4"
+gem "friendly_id", "~> 5.4"
