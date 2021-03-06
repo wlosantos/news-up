@@ -7,10 +7,28 @@
           %h1 #{ @post.title }
           .show_dates.mb-5
             #{ l @post.created_at, format: :long }
-          = render 'users/avatar', profile: @post.user
-          - if @post.upload.attached?
-            .show_image
-              #{ image_tag @post.upload, class: 'img_show' }
+          .show_votable
+            %div
+              = render 'users/avatar', profile: @post.user
+              - if @post.upload.attached?
+                .show_image
+                  #{ image_tag @post.upload, class: 'img_show' }
+            %div
+              .icones.mt-4
+                .tags.has-addons
+                  = link_to like_post_path(@post), method: :put, class: 'tag like' do
+                    = @post.get_upvotes.size
+                    %span.ml-2
+                      %i.fas.fa-thumbs-up
+                  = link_to unlike_post_path(@post), method: :put, class: 'tag like' do
+                    = @post.get_downvotes.size
+                    %span.ml-2
+                      %i.fas.fa-thumbs-down
+                  %span.tag
+                    %b.mr-2 #{ @post.comments.count }
+                    #{ t 'comment' }(s) &nbsp;
+                    %span
+                      %i.fas.fa-comment-alt
 
           .show_description
             %p #{ @post.body }

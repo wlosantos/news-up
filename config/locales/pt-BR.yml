@@ -7,6 +7,9 @@ pt-BR:
       post:
         one: Artigo
         other: Artigos
+      comment:
+        one: Comentário
+        other: Comentários
 
     attributes:
       default: &default
@@ -23,6 +26,10 @@ pt-BR:
         body: 'Descrição'
         upload: 'Arquivo'
         thumbnail: 'Thumbnail'
+      comment:
+        <<: *default
+        commenter: Comentário
+
   # form
   login: Entrar
   signup: 'Novo Cadastro'
@@ -47,6 +54,7 @@ pt-BR:
   by: por
   author: 'Autor'
   comment: 'Comentário'
+  add: Adicionar
 
 
 # formatos de data e hora

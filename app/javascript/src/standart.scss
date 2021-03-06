@@ -5,7 +5,6 @@
     flex: 1;
     display: flex;
     flex-wrap: wrap;
-    // position: relative;
 
     .grid_content {
       flex: 1;
@@ -155,12 +154,13 @@
 
   .tag_cloud {
       font-size: .8rem;
+      display: flex;
+      flex-wrap: wrap;
     a {
       background: #eee;
       padding: 2px 5px;
-      // border-left: 2px solid $color-link-clean;
-      margin-right: 3px;
-      margin-bottom: 3px;
+      display: block;
+      margin: 0px 8px 8px 0px;
     }
     .s{border-left: 2px solid $color-destaque;}
     .m{border-left: 2px solid $color-link-clean;}

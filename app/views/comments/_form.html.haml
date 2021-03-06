@@ -5,16 +5,8 @@
   .icones.mt-4
     .tags.has-addons
       %span.tag
-        780 &nbsp;
-        %span
-          %i.fas.fa-thumbs-up
-      %span.tag
-        21 &nbsp;
-        %span
-          %i.fas.fa-thumbs-down
-      %span.tag
-        %b.mr-2 #{ origem.total_comments } 
-        Comments &nbsp;
+        %b.mr-2 #{ origem.total_comments }
+        #{ t 'comment' }(s) &nbsp;
         %span
           %i.fas.fa-comment-alt
 
@@ -26,7 +18,7 @@
           .control
             = form.text_area :commenter, class: 'textarea', rows: 2
         .field.has-text-right
-          = form.submit class: 'button is-info is-small'
+          = form.submit "#{ t 'add' }", class: 'button is-info is-small'
 
   - else
     -# TODO: Recado para quem não é inscrito ...

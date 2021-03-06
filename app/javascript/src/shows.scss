@@ -18,6 +18,22 @@
     }
   }
 
+  .show_votable {
+    .icones .tag {
+      border: 1px solid #ddd;
+    }
+
+    .like {
+      font-size: .75rem;
+      font-weight: 600;
+      text-decoration: none;
+
+      &:hover {
+        color: $color-link-clean;
+      }
+    }
+  }
+
   .show_description {
     margin-top: 2rem;
     padding-bottom: 2rem;
