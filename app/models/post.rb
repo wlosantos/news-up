@@ -19,4 +19,14 @@ class Post < ApplicationRecord
     self.comments.where(status: :pending).count
   end
 
+  def self.search(search)
+    where("title LIKE ?", "%" + search + "%")
+  end
+
+  before_save do
+    if self.thumbnail == nil
+      self.thumbnail == 'video.jpg'
+    end 
+  end
+
 end

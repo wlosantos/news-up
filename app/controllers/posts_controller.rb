@@ -71,9 +71,13 @@ class PostsController < ApplicationController
 
   def search
     # TODO: Refaturar a pesquisa em categoria
-    @posts = Post.where("title LIKE ?", "%" + params[:q] + "%")
-    if params[:action] == 'list_videos'
-      render :list_videos
+    if params[:q] != '' || params[:q] != nil
+      @posts = Post.search(params[:q])
+      if params[:action] == 'list_videos'
+        render :list_videos
+      else
+        render :list_posts
+      end
     else
       render :list_posts
     end
