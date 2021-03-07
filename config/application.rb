@@ -24,7 +24,7 @@ module Newsup
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
-    config.i18n.available_locales = ["pt-BR", :es, :en]
+    config.i18n.available_locales = [:en, :es, 'pt-BR']
     config.time_zone = 'Brasilia'
     config.i18n.default_locale = 'pt-BR'
 

@@ -31,17 +31,21 @@ module ApplicationHelper
     if !lang.empty?
       case lang
       when 'en'
-        = image_tag 'usa.png'
+        image_tag 'usa.png'
       when 'pt-BR'
-        = image_tag 'brazil.png'
+        image_tag 'brazil.png'
       when 'es'
-        = image_tag 'spain.png'
+        image_tag 'spain.png'
       else
-        = image_tag 'usa.png'
+        image_tag 'usa.png'
       end
     else
-      = image_tag 'usa.png'
+      image_tag 'usa.png'
     end
+  end
+
+  def friend_create(friend)
+    { friend: friend }
   end
 
 end

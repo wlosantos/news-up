@@ -91,4 +91,5 @@
 
         .navbar-item
           - if user_signed_in?
-            language_user(current_user.language)
+            = link_to '#', id: 'modal_language', data: {modal_id: 'user-actions'} do
+              = language_user(current_user.language)

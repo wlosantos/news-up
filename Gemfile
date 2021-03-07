@@ -13,7 +13,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'devise'
 gem 'devise-i18n', '~> 1.9', '>= 1.9.2'
-# gem 'rails-i18n'
+gem 'rails-i18n'
 
 gem "acts-as-taggable-on", "~> 7.0"
 gem 'acts_as_votable', '~> 0.13.1'

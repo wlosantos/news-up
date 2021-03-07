@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments
   has_one_attached :avatar
+  has_many :friends
 
   enum kind: [:user, :admin, :manager]
   enum status: [:active, :inactive]
@@ -23,6 +24,18 @@ class User < ApplicationRecord
 
   def total_comments
     self.posts.joins(:comments).count
+  end
+
+  def request_friends?(friend)
+    self.friends.where(friend: friend).exists?
+  end
+
+  def status_friends(friend)
+    if request_friends?(friend)
+      self.friends.where(friend: friend).pluck(:status).join()
+    else
+      false
+    end
   end
 
 end
