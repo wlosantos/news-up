@@ -4,6 +4,9 @@ const headers = { "Content-Type": "application/json", "X-CSRF-Token": token };
 document.addEventListener('DOMContentLoaded', () => {
 
   if(btnAdicionar() != null) btnAdicionar().addEventListener('click', solicitar)
+  document.querySelectorAll('.action .btn_social').forEach(button => {
+  button.addEventListener('click', updated_friend);
+});
 
 });
 
@@ -35,8 +38,21 @@ const solicitar = event => {
 
 }
 
-const acceptFriend = event => {
-  console.log('botão acionado')
+const updated_friend = event => {
+  event.preventDefault();
+  const actionElement = event.target.closest('.action')
+  const dados = JSON.parse(actionElement.dataset.socialId)
+  const linhaPost = document.querySelector(`.social-${dados.id}`)
+
+  const url = `/friends/${dados.id}`
+  const options = {
+    method: 'PATCH',
+    headers,
+    body: JSON.stringify({ friend: dados })
+  }
+
+  connection(url, options)
+  linhaPost.style.display = 'none'
 }
 
 const connection = (url, options)=>{
