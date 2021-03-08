@@ -14,8 +14,6 @@ Rails.application.routes.draw do
   get '/list_posts', to: 'posts#list_posts'
   get '/list_videos', to: 'posts#list_videos'
   get 'tags/:tag', to: 'posts#index', as: :tag
-  # get '/articles', to: 'posts#index', param: :post
-  # get '/videos', to: 'posts#index', param: :video
 
   resources :comments, only: %i[ create updade destroy ] do
     member do
@@ -23,4 +21,6 @@ Rails.application.routes.draw do
       put 'unlike', to: 'comments#downvote'
     end
   end
+
+  resources :friends, only: %i[ create update destroy ]
 end

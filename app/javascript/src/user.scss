@@ -27,7 +27,15 @@
 
     span{
       font-size: .7rem;
-      color: $color-link-clean;
+      // color: $color-link-clean;
     }
+  }
+}
+
+.language_icon {
+
+  img {
+    width: 22px;
+    height: 22px;
   }
 }
