@@ -6,6 +6,7 @@ import 'packs/flashMessages'
 import 'packs/user'
 import 'packs/social'
 import 'packs/modal'
+import 'packs/profile'
 require("trix")
 require("@rails/actiontext")
 

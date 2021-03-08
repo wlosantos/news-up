@@ -49,7 +49,7 @@
                 = link_to rails_admin_path, class: 'navbar-item' do
                   %i.fas.fa-user-lock.mr-2
                   #{ t 'administration' }
-              = link_to '#', class: 'navbar-item' do
+              = link_to user_path(current_user.id), class: 'navbar-item' do
                 %i.fas.fa-list.mr-2
                 #{ t 'profile' }
               = link_to new_post_path(type_subject: :post), class: 'navbar-item' do
@@ -58,7 +58,7 @@
               = link_to new_post_path(type_subject: :video), class: 'navbar-item' do
                 %i.far.fa-file-video.mr-2
                 #{ t 'add_video' }
-              = link_to '#', class: 'navbar-item' do
+              = link_to profile_edit_path, class: 'navbar-item' do
                 %i.fas.fa-user.mr-2
                 #{ t 'edit_register' }
               .navbar-divider
@@ -73,7 +73,7 @@
                 = get_avatar(current_user)
               = current_user.username
             .navbar-dropdown.is-right
-              = link_to '#', class: 'navbar-item' do
+              = link_to profile_edit_path, class: 'navbar-item' do
                 %i.fas.fa-user.mr-2
                 Editar Cadastro
               .navbar-divider

@@ -39,3 +39,25 @@
     height: 22px;
   }
 }
+
+.perfil_show {
+  display: flex;
+  align-items: stretch;
+
+  .content_perfil{
+    flex: 1;
+  }
+  .aside_perfil{
+    width: 280px;
+    margin-left: 15px;
+  }
+}
+
+.content_perfil {
+
+  .tab_wrapper {
+    display: none;
+  }
+
+
+}

@@ -57,4 +57,8 @@ module ApplicationHelper
     Friend.all.where(friend: friend, user_id: user).pluck(:id)
   end
 
+  def update_comment_post(commentid, status)
+    {id: commentid, status: status}.to_json
+  end
+
 end

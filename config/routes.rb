@@ -24,4 +24,8 @@ Rails.application.routes.draw do
   end
 
   resources :friends, only: %i[ create update destroy ]
+
+  resources :users, only: %i[ show ]
+  get '/profile_edit', to: 'users#edit'
+  patch '/profile', to: 'users#updade'
 end
