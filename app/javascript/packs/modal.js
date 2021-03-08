@@ -8,12 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const modal = new tingle.modal({
         closeMethods: ['overlay','escape'],
-        cssClass: ['content-modals']
+        cssClass: ['content-modals'],
+        closeLabel: 'Exit'
       });
 
       const modalContent = document.querySelector(`#${button.dataset.modalId}`).innerHTML;
 
       modal.setContent(modalContent);
+      })
       modal.open();
     })
   });

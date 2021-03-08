@@ -23,7 +23,7 @@ class User < ApplicationRecord
   end
 
   def total_comments
-    self.posts.joins(:comments).count
+    self.posts.joins(:comments).where(comments: {status: :pending}).count
   end
 
   def request_friends?(friend)

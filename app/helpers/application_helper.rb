@@ -33,7 +33,7 @@ module ApplicationHelper
       when 'en'
         image_tag 'usa.png'
       when 'pt-BR'
-        image_tag 'brazil.png'
+        image_tag 'Brazil2.png'
       when 'es'
         image_tag 'spain.png'
       else

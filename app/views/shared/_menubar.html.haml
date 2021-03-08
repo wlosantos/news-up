@@ -29,12 +29,12 @@
                   %i.fas.fa-search
 
         -if user_signed_in? && (current_user.kind == 'admin' || current_user.kind == 'manager')
-          = link_to '#', class: 'navbar-item icone' do
+          = link_to user_path(current_user.id), class: 'navbar-item icone' do
             .social_count.px-2
               %i.fas.fa-comment
               %span
                 #{ current_user.total_comments }
-          = link_to '#', class: 'navbar-item icone', data: {modal_id: 'user-follow'} do
+          = link_to user_path(current_user.id), class: 'navbar-item icone' do
             .social_count.px-2
               %i.fas.fa-user
               %span
@@ -90,7 +90,15 @@
               %i.fas.fa-pencil-alt.mr-2
               #{ t 'signup' }
 
-        .navbar-item
+        -# .navbar-item
           - if user_signed_in?
             = link_to '#', id: 'modal_language', data: {modal_id: 'user-actions'} do
               = language_user(current_user.language)
+
+        .navbar-item
+          = link_to root_path(lang: 'pt-BR'), class: 'language_image' do
+            = image_tag 'Brazil2.png'
+
+        .navbar-item
+          = link_to root_path(lang: :es), class: 'language_image' do
+            = image_tag 'Spain2.png'
