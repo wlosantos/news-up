@@ -5,7 +5,7 @@ class Comment < ApplicationRecord
   belongs_to :post
   belongs_to :user
 
-  enum status: [ :pending, :published, :bloqued ]
+  enum status: [ :pending, :published, :blocked ]
 
   validates :commenter, presence: true, length: { minimum: 2, maximum: 240 }
 

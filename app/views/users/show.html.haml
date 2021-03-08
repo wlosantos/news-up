@@ -44,14 +44,13 @@
                               %table.table.is-striped.is-fullwidth
                                 - post.comments.each do |post_comment|
                                   %tr{class: "cmtPost-#{post_comment.id}"}
-                                    %td #{ post_comment.commenter }
+                                    %td{width: '80%'} #{ post_comment.commenter }
                                     %td #{ post_comment.status }
-                                    %td{width: '5px'}
-                                      .action{data:{post:{comment: "#{update_comment_post(post_comment.id, 'published')}"}}}
-                                        .btn_comment_post
-                                          %i.fas.fa-lock
-                                    %td{width: '5px'}
-                                      %span
+                                    %td.action{data:{post:{comment: "#{update_comment(post_comment.id, 'published')}"}}}
+                                      .btn_comment_published
+                                        %i.fas.fa-lock
+                                    %td.action{data:{post:{comment: "#{update_comment(post_comment.id, 'blocked')}"}}}
+                                      .btn_comment_published
                                         %i.fas.fa-trash
                   .tab_wrapper
                     %table.table.is-striped.is-fullwidth
@@ -71,8 +70,8 @@
                                     %td #{ video_comment.commenter }
                                     %td #{ video_comment.status }
                                     %td{width: '5px'}
-                                      .action{data:{post:{comment: "#{update_comment_post(video_comment.id, 'published')}"}}}
-                                        .btn_comment_post
+                                      .action{data:{post:{comment: "#{update_comment(video_comment.id, 'published')}"}}}
+                                        .btn_comment_published
                                           %i.fas.fa-lock
                                     %td{width: '5px'}
                                       %span

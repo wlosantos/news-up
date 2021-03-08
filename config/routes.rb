@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get '/list_videos', to: 'posts#list_videos'
   get 'tags/:tag', to: 'posts#index', as: :tag
 
-  resources :comments, only: %i[ create updade destroy ] do
+  resources :comments, only: %i[ create update destroy ] do
     member do
       put 'like', to: 'comments#upvote'
       put 'unlike', to: 'comments#downvote'
