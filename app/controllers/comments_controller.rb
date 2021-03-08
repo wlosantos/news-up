@@ -1,13 +1,13 @@
 class CommentsController < ApplicationController
 
-before_action :set_comment, only: %i[ upvote downvote ]
+before_action :set_comment, only: %i[ upvote downvote update ]
 
 def create
   @comment = current_user.comments.new(comment_params)
   if @comment.save
     redirect_to @comment.post, notice: 'Comment created with successfully!!!'
   else
-    flash[:alert] = @comment.errors.full_messages.to_sentence
+    flash.now[:alert] = @comment.errors.full_messages.to_sentence
     redirect_to @comment.post
   end
 end
@@ -22,6 +22,15 @@ def downvote
   redirect_to @comment.post
 end
 
+def update
+  if @comment.update(comment_params)
+    render json: { successull: true}, notice: 'Comments update successfully!!!'
+  else
+    render json: { successull: false}
+    flash.now[:alert] = 'ERROR'
+  end
+end
+
 def destroy
 end
 
@@ -32,7 +41,7 @@ def set_comment
 end
 
 def comment_params
-  params.require(:comment).permit(:commenter, :post_id)
+  params.require(:comment).permit(:commenter, :post_id, :status)
 end
 
 end

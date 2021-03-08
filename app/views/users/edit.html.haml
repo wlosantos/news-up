@@ -1,0 +1,24 @@
+%main
+  -# = render 'shared/banner'
+  .container.mt-4
+    .wrapper_content
+      .show_content{style: 'display: flex; justify-content: center'}
+        .column.is-4.base_profile
+          .columns.is-4
+            = form_with model: current_user, url: profile_path, local: true, class: 'edit-profile' do |form|
+              %h1.has-text-centered #{ t 'edit' }
+
+              .field
+                = form.label :name, class: 'label'
+                .control
+                  = form.text_field :name, class: 'input', placeholder: "#{t 'name'}"
+              .field
+                = form.label :avatar, class: 'label'
+                .control
+                  = form.file_field :avatar
+
+              .actions
+                = form.submit class: 'button is-info'
+
+      .grid_aside
+        = render 'users/perfil_follow', profile: current_user

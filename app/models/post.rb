@@ -17,6 +17,8 @@ class Post < ApplicationRecord
 
   scope :listposts, -> { where(type_subject: :post) }
   scope :listvideos, -> { where(type_subject: :video) }
+  scope :list_comments_posts, -> { joins(:comments).where(type_subject: :post, comments: {status: :pending}).distinct }
+  scope :list_comments_videos, -> { joins(:comments).where(type_subject: :video, comments: {status: :pending}).distinct }
 
   validates :upload, presence: true
 

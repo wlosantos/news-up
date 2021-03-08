@@ -1,0 +1,124 @@
+- if user_signed_in?
+  %main.mt-4
+    .container
+      .wrapper_content
+        .wrapper_grids
+          .show_content
+            .perfil_show
+              .content_perfil
+                .panel_tabs
+                  .tabs.is-boxed
+                    %ul
+                      %li.is-active
+                        %a
+                          %i.fas.fa-comment.mr-2
+                          Comentários dos Posts
+
+                      %li
+                        %a
+                          %i.far.fa-comment.mr-2
+                          Comentários dos Vídeos
+                      %li
+                        %a
+                          %i.fas.fa-user.mr-2
+                          Solicitações de Amizade
+                      %li
+                        %a
+                          %i.fas.fa-user-friends.mr-2
+                          Lista de Amigos
+
+                .tab_content
+                  .tab_wrapper{style: 'display: block'}
+                    %table.table.is-striped.is-fullwidth
+                      %thead
+                        %tr
+                          %th ID
+                          %th Post
+                          %th Comentários
+                      %tbody
+                        - @posts.each do |post|
+                          %tr
+                            %td #{ post.id }
+                            %td #{ post.title }
+                            %td
+                              %table.table.is-striped.is-fullwidth
+                                - post.comments.each do |post_comment|
+                                  %tr{class: "cmtPost-#{post_comment.id}"}
+                                    %td{width: '80%'} #{ post_comment.commenter }
+                                    %td #{ post_comment.status }
+                                    %td.action{data:{post:{comment: "#{update_comment(post_comment.id, 'published')}"}}}
+                                      .btn_comment_published
+                                        %i.fas.fa-lock
+                                    %td.action{data:{post:{comment: "#{update_comment(post_comment.id, 'blocked')}"}}}
+                                      .btn_comment_published
+                                        %i.fas.fa-trash
+                  .tab_wrapper
+                    %table.table.is-striped.is-fullwidth
+                      %thead
+                        %th ID
+                        %th Video
+                        %th Comentários
+                      %tbody
+                        - @videos.each do |video|
+                          %tr
+                            %td #{ video.id }
+                            %td #{ video.title }
+                            %td
+                              %table.table.is-striped.is-fullwidth
+                                - video.comments.each do |video_comment|
+                                  %tr{class: "cmtPost-#{video_comment.id}"}
+                                    %td #{ video_comment.commenter }
+                                    %td #{ video_comment.status }
+                                    %td{width: '5px'}
+                                      .action{data:{post:{comment: "#{update_comment(video_comment.id, 'published')}"}}}
+                                        .btn_comment_published
+                                          %i.fas.fa-lock
+                                    %td{width: '5px'}
+                                      %span
+                                        %i.fas.fa-trash
+
+                  .tab_wrapper
+                    %table.table.is-striped.is-fullwidth
+                      %thead
+                        %tr
+                          %th #
+                          %th Data
+                          %td Solicitante
+                          %td Username
+                          %td
+                      %tbody
+                        - Friend.list_friend_pending(current_user.id).each do |friend|
+                          %tr{class: "social-#{friend.id}"}
+                            %td #{ friend.id }
+                            %td #{ l friend.created_at ,format: :long }
+                            %td #{ friend.user.name }
+                            %td #{ friend.user.username }
+                            - if friend.status == 'pending'
+                              %td
+                                .action{data:{social:{id: "#{updated_friend(friend.id, 'accepted')}"}}}
+                                  .btn_social
+                                    %i.fas.fa-lock
+
+                  .tab_wrapper
+                    %table.table.is-striped.is-fullwidth
+                      %thead
+                        %tr
+                          %th #
+                          %th Data
+                          %td Solicitante
+                          %td Username
+                          %td
+                      %tbody
+                        - Friend.list_friend(current_user.id).each do |friend|
+                          %tr{class: "social-#{friend.id}"}
+                            %td #{ friend.id }
+                            %td #{ l friend.created_at ,format: :long }
+                            %td #{ friend.user.name }
+                            %td #{ friend.user.username }
+                            - if friend.status == 'pending'
+                              %td
+                                .action{data:{social:{id: "#{block_friend(friend.id, 'blocked')}"}}}
+                                  .btn_social
+                                    %i.fas.fa-lock
+              -# .aside_perfil
+              -#   aside
