@@ -47,3 +47,6 @@ end
 
 gem "ransack", "~> 2.4"
 gem "friendly_id", "~> 5.4"
+gem 'rails_admin', '~> 2.0'
+gem 'rails_admin-i18n', '~> 1.16'
+gem 'cancancan', '~> 3.2', '>= 3.2.1'
