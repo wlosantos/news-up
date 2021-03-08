@@ -61,4 +61,12 @@ module ApplicationHelper
     {id: commentid, status: status}.to_json
   end
 
+  def updated_friend(id, status)
+    {id: id, status: status}.to_json
+  end
+
+  def block_friend(id, status)
+    {id: id, status: status}.to_json
+  end
+
 end
