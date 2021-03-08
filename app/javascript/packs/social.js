@@ -7,8 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+
 const btnAdicionar = () =>{
   const btn = document.querySelector('.btn-adicionar');
+  return btn;
+}
+
+const btnAcceptFriend = () => {
+  const btn = document.querySelector('.btn-accept');
   return btn;
 }
 
@@ -27,6 +33,10 @@ const solicitar = event => {
   const btn_parent = document.querySelector('.btn_action .action');
   btn_parent.innerHTML = 'solicitado!!'
 
+}
+
+const acceptFriend = event => {
+  console.log('botão acionado')
 }
 
 const connection = (url, options)=>{

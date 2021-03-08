@@ -48,4 +48,13 @@ module ApplicationHelper
     { friend: friend }
   end
 
+# Totais models
+  def pending_list(user)
+    User.all.joins(:friends).where(friends: {friend: user, status: 'pending'})
+  end
+
+  def set_follow(user, friend)
+    Friend.all.where(friend: friend, user_id: user).pluck(:id)
+  end
+
 end

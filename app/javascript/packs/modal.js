@@ -15,8 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       modal.setContent(modalContent);
       modal.open();
-
-      console.log(modalContent);
     })
   });
 });

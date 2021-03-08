@@ -34,10 +34,11 @@
               %i.fas.fa-comment
               %span
                 #{ current_user.total_comments }
-          = link_to '#', class: 'navbar-item icone' do
+          = link_to '#', class: 'navbar-item icone', data: {modal_id: 'user-follow'} do
             .social_count.px-2
               %i.fas.fa-user
-              %span 0
+              %span
+                #{ Friend.pendings_friends(current_user.id) }
           .navbar-item.has-dropdown.is-hoverable.is-flex
             = link_to '#', class: 'navbar-link' do
               .profile
