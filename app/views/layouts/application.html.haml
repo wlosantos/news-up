@@ -16,5 +16,7 @@
       = render 'shared/menubar'
     %section
       = yield
-    %footer
+      = render 'shared/user_action_modal'
+      -# = render 'users/social_follow'
+    %footer.has-background-dark
       = render 'shared/footer'

@@ -29,15 +29,16 @@
                   %i.fas.fa-search
 
         -if user_signed_in? && (current_user.kind == 'admin' || current_user.kind == 'manager')
-          = link_to '#', class: 'navbar-item icone' do
+          = link_to user_path(current_user.id), class: 'navbar-item icone' do
             .social_count.px-2
               %i.fas.fa-comment
               %span
                 #{ current_user.total_comments }
-          = link_to '#', class: 'navbar-item icone' do
+          = link_to user_path(current_user.id), class: 'navbar-item icone' do
             .social_count.px-2
               %i.fas.fa-user
-              %span 0
+              %span
+                #{ Friend.pendings_friends(current_user.id) }
           .navbar-item.has-dropdown.is-hoverable.is-flex
             = link_to '#', class: 'navbar-link' do
               .profile
@@ -48,7 +49,7 @@
                 = link_to rails_admin_path, class: 'navbar-item' do
                   %i.fas.fa-user-lock.mr-2
                   #{ t 'administration' }
-              = link_to '#', class: 'navbar-item' do
+              = link_to user_path(current_user.id), class: 'navbar-item' do
                 %i.fas.fa-list.mr-2
                 #{ t 'profile' }
               = link_to new_post_path(type_subject: :post), class: 'navbar-item' do
@@ -57,9 +58,12 @@
               = link_to new_post_path(type_subject: :video), class: 'navbar-item' do
                 %i.far.fa-file-video.mr-2
                 #{ t 'add_video' }
-              = link_to '#', class: 'navbar-item' do
+              = link_to edit_user_registration_path, class: 'navbar-item' do
                 %i.fas.fa-user.mr-2
                 #{ t 'edit_register' }
+              = link_to profile_edit_path, class: 'navbar-item' do
+                %i.fas.fa-portrait.mr-2
+                #{ t 'avatar' }
               .navbar-divider
               = link_to destroy_user_session_path, method: :delete, class: 'navbar-item', data: {confirm: "#{ t 'are_you_sure'}"} do
                 %i.fas.fa-door-open.mr-2
@@ -72,13 +76,16 @@
                 = get_avatar(current_user)
               = current_user.username
             .navbar-dropdown.is-right
-              = link_to '#', class: 'navbar-item' do
+              = link_to edit_user_registration_path, class: 'navbar-item' do
                 %i.fas.fa-user.mr-2
-                Editar Cadastro
+                #{ t 'edit_register' }
+              = link_to profile_edit_path, class: 'navbar-item' do
+                %i.fas.fa-user.mr-2
+                #{ t 'avatar' }
               .navbar-divider
               = link_to destroy_user_session_path, method: :delete, class: 'navbar-item', data: {confirm: "#{ t 'are_you_sure'}"} do
                 %i.fas.fa-door-open.mr-2
-                Exit
+                #{ t 'exit' }
 
         - else
           = link_to new_user_session_path, class: 'navbar-item is-small' do
@@ -88,3 +95,8 @@
             = link_to new_user_registration_path, class: 'button is-info is-small is-rounded' do
               %i.fas.fa-pencil-alt.mr-2
               #{ t 'signup' }
+
+        .navbar-item
+          - if user_signed_in?
+            = link_to '#', id: 'modal_language', data: {modal_id: 'user-actions'} do
+              = language_user(current_user.language)

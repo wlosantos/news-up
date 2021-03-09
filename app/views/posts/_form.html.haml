@@ -1,4 +1,11 @@
-%h2.has-text-centered.mb-5.mt-4 #{ title }
+%h2.has-text-centered.mb-5.mt-4
+  - if params[:action] == 'edit'
+    - if post.type_subject == 'post'
+      #{ t 'edit_post'}
+    - else
+      #{ t 'edit_video'}
+  - else
+    #{ title }
 
 =form_with(model: post, local: true) do |form|
   = form.hidden_field :type_subject, value: params[:type_subject]
@@ -35,14 +42,15 @@
               = image_tag post.upload
       .column
         .field
-          = form.label :streaming, class: 'label'
+          = form.label "#{'image'}", class: 'label'
           .control
-            = form.file_field :streaming
+            = form.file_field :upload
       .column
-        .field
-          = form.label "#{t 'image'}", class: 'label'
-          .control
-            = form.file_field :upload, require: true
+        - if post.type_subject != 'post'
+          .field
+            = form.label "#{t 'video'}", class: 'label'
+            .control
+              = form.file_field :streaming, require: true
 
   .field.has-text-right.mb-5
     = form.submit "#{ t 'confirm' }", class: 'button is-info'

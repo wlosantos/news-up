@@ -37,3 +37,16 @@ h3{ font-size: 1.2rem; }
 h4{ font-size:   1rem; }
 h5{ font-size: 0.8rem; }
 a{ color: $color-link-clean; }
+
+.modals{ display: none}
+.content-modals .tingle-modal-box{
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  padding: 2rem;
+}
+.content-modals .tingle-modal-box__content{
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}

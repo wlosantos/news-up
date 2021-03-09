@@ -27,7 +27,39 @@
 
     span{
       font-size: .7rem;
-      color: $color-link-clean;
+      // color: $color-link-clean;
     }
   }
+}
+
+.language_icon {
+
+  img {
+    width: 22px;
+    height: 22px;
+  }
+}teste
+
+.perfil_show {
+  display: flex;
+  align-items: stretch;
+
+  .content_perfil{
+    flex: 1;
+  }
+  .aside_perfil{
+    width: 280px;
+    margin-left: 15px;
+  }
+}
+
+.content_perfil {
+
+  .tab_wrapper {
+    display: none;
+  }
+}
+
+.btn-amigos {
+  cursor: none;
 }

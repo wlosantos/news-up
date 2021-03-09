@@ -48,8 +48,4 @@
                     %span
                       #{ l post.created_at, format: :long }
         .grid_aside
-          .aside_container
-            .titles
-              %i.fas.fa-tags
-              tags
-            = render 'shared/tags'
+          = render 'shared/tags'

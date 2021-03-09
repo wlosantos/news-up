@@ -43,5 +43,11 @@
                       #{ t 'by' } #{ post.user.name }
                     %span
                       #{ l post.created_at, format: :long }
+
+
         .grid_aside
           = render 'shared/tags'
+
+    .pagination
+      = paginate @posts
+%br

@@ -4,26 +4,18 @@ class PostsController < ApplicationController
 
   def index
     if params[:tag]
-      @posts = Post.tagged_with(params[:tag]).order(created_at: :desc)
+      @posts = Post.tagged_with(params[:tag]).order(created_at: :desc).page(params[:page]).per(12)
     else
-      @posts = Post.all
+      @posts = Post.page(params[:page]).per(24)
     end
   end
 
   def list_posts
-    if params[:tag]
-      @posts = Post.tagged_with(params[:tag]).order(created_at: :desc)
-    else
-      @posts = Post.listposts
-    end
+    @posts = Post.listposts.order(created_at: :desc).page(params[:page]).per(12)
   end
 
   def list_videos
-    if params[:tag]
-      @posts = Post.tagged_with(params[:tag]).order(created_at: :desc)
-    else
-      @posts = Post.listvideos
-    end
+    @posts = Post.listvideos.order(created_at: :desc).page(params[:page]).per(12)
   end
 
   def show
@@ -73,7 +65,7 @@ class PostsController < ApplicationController
     # TODO: Refaturar a pesquisa em categoria
     if params[:q] != '' || params[:q] != nil
 
-      @posts = Post.search(params[:q])
+      @posts = Post.search(params[:q]).page(params[:page]).per(12)
       render :list_posts
 
     else
@@ -90,7 +82,7 @@ class PostsController < ApplicationController
   private
 
   def set_post
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
   end
 
   def post_param

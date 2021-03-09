@@ -21,6 +21,10 @@
       = f.label :password_confirmation, class: 'label'
       .control
         = f.password_field :password_confirmation, class: 'input', autocomplete: "new-password"
+    .field
+      = f.label :language, class: 'label'
+      .control
+        = f.select :language, [['Brazil','pt-BR'],['USA','en'],['Spain','es']]
     .actions
       = f.submit "#{t 'btnsign'}", class: 'button is-info is-small'
   .spacing

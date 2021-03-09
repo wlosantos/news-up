@@ -13,7 +13,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'devise'
 gem 'devise-i18n', '~> 1.9', '>= 1.9.2'
-# gem 'rails-i18n'
+gem 'rails-i18n'
 
 gem "acts-as-taggable-on", "~> 7.0"
 gem 'acts_as_votable', '~> 0.13.1'
@@ -46,3 +46,9 @@ group :production do
 end
 
 gem "ransack", "~> 2.4"
+gem "friendly_id", "~> 5.4"
+gem 'rails_admin', '~> 2.0'
+gem 'rails_admin-i18n', '~> 1.16'
+gem 'cancancan', '~> 3.2', '>= 3.2.1'
+gem 'kaminari'
+gem 'kaminari-i18n', '~> 0.3.2'

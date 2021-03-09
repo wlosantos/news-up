@@ -1,5 +1,8 @@
 class Post < ApplicationRecord
 
+  extend FriendlyId
+  friendly_id :title, use: [:slugged, :history, :finders]
+
   acts_as_votable
 
   belongs_to :user
@@ -14,6 +17,10 @@ class Post < ApplicationRecord
 
   scope :listposts, -> { where(type_subject: :post) }
   scope :listvideos, -> { where(type_subject: :video) }
+  # scope :list_comments_posts, -> { joins(:comments).where(type_subject: :post, comments: {status: :pending}).distinct }
+  # scope :list_comments_videos, -> { joins(:comments).where(type_subject: :video, comments: {status: :pending}).distinct }
+  scope :comments_post_not_published, -> { joins(:comments).where(type_subject: :post).where.not(comments: {status: :published}).distinct }
+  scope :comments_video_not_published, -> { joins(:comments).where(type_subject: :video).where.not(comments: {status: :published}).distinct }
 
   validates :upload, presence: true
 
