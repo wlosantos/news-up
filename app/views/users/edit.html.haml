@@ -1,24 +1,24 @@
 %main
   -# = render 'shared/banner'
   .container.mt-4
-    .wrapper_content
-      .show_content{style: 'display: flex; justify-content: center'}
-        .column.is-4.base_profile
-          .columns.is-4
-            = form_with model: current_user, url: profile_path, local: true, class: 'edit-profile' do |form|
-              %h1.has-text-centered #{ t 'edit' }
+    .wrapper_content{style: 'min-height: 600px'}
+      .show_edit_user
+        .base_edit_user
+          .figure_edit
+            = image_tag current_user.avatar, class: 'photo_user'
+          = form_with model: current_user, url: profile_path, local: true, class: 'edit-profile' do |form|
+            %h1.has-text-centered #{ t 'add_avatar' }
+            .field.mt-4
+              = form.label :language, class: 'label'
+              .control
+                = form.select :language, [['Brazil','pt-BR'],['USA','en'],['Spain','es']]
+            .field
+              = form.label :avatar, class: 'label'
+              .control
+                = form.file_field :avatar
 
-              .field
-                = form.label :name, class: 'label'
-                .control
-                  = form.text_field :name, class: 'input', placeholder: "#{t 'name'}"
-              .field
-                = form.label :avatar, class: 'label'
-                .control
-                  = form.file_field :avatar
+            .actions.has-text-centered
+              = form.submit class: 'button is-info'
 
-              .actions
-                = form.submit class: 'button is-info'
-
-      .grid_aside
+      -# .grid_aside
         = render 'users/perfil_follow', profile: current_user

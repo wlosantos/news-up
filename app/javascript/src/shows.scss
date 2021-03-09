@@ -41,3 +41,29 @@
     margin-bottom: 2rem;
   }
 }
+
+.show_edit_user {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .base_edit_user {
+    padding: 2rem;
+    padding-top: 6rem;
+    background: #fff;
+    border-radius: 5px;
+    position: relative;
+
+    .photo_user {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      position: absolute;
+      top: -75px;
+      right: 90px;
+      border: 4px solid #fff;
+    }
+  }
+
+}

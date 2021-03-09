@@ -49,6 +49,10 @@ module ApplicationHelper
   end
 
 # Totais models
+  def are_friends(frd, usr)
+    Friend.reverse_friend(frd, usr) && Friend.friend_reverse(usr, frd)
+  end
+
   def pending_list(user)
     User.all.joins(:friends).where(friends: {friend: user, status: 'pending'})
   end

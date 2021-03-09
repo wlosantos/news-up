@@ -12,17 +12,17 @@
         @#{ profile.username }
 
   .btn_action.has-text-centered.mt-1
-    - if current_user != profile
-      - if current_user.status_friends(profile) == false
-        .action.has-text-white.is-size-5
-          = link_to '#', class: 'btn-adicionar button is-info is-small', data:{social_id: profile.id } do
-            %i.fas.fa-user-plus.mr-3
-            adicionar
-      - elsif current_user.status_friends(profile) == 'accepted'
-        = link_to '#', class: 'btn-amigos button is-primary is-small' do
-          %i.fas.fa-users.mr-3
-          amigos
-      - else
-        = link_to '#', class: 'btn-aguardando button is-light is-small is-static' do
-          -# %i.fas.fa-ellipsis-h.mr-3
-          aguardando ...
+    - if user_signed_in?
+      - if current_user != profile
+        - if are_friends(current_user.id, profile)
+          = link_to '#', class: 'btn-amigos button is-primary is-small is-fullwidth' do
+            %i.fas.fa-check-circle.mr-3
+            amigos
+        - elsif current_user.status_friends(profile) == false
+          .action.has-text-white.is-size-5
+            = link_to '#', class: 'btn-adicionar button is-info is-small', data:{social_id: profile.id } do
+              %i.fas.fa-user-plus.mr-3
+              adicionar
+        - else
+          = link_to '#', class: 'btn-aguardando button is-light is-small is-static' do
+            aguardando ...

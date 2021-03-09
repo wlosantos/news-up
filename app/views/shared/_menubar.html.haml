@@ -58,9 +58,12 @@
               = link_to new_post_path(type_subject: :video), class: 'navbar-item' do
                 %i.far.fa-file-video.mr-2
                 #{ t 'add_video' }
-              = link_to profile_edit_path, class: 'navbar-item' do
+              = link_to edit_user_registration_path, class: 'navbar-item' do
                 %i.fas.fa-user.mr-2
                 #{ t 'edit_register' }
+              = link_to profile_edit_path, class: 'navbar-item' do
+                %i.fas.fa-portrait.mr-2
+                #{ t 'avatar' }
               .navbar-divider
               = link_to destroy_user_session_path, method: :delete, class: 'navbar-item', data: {confirm: "#{ t 'are_you_sure'}"} do
                 %i.fas.fa-door-open.mr-2
@@ -73,9 +76,12 @@
                 = get_avatar(current_user)
               = current_user.username
             .navbar-dropdown.is-right
-              = link_to profile_edit_path, class: 'navbar-item' do
+              = link_to edit_user_registration_path, class: 'navbar-item' do
                 %i.fas.fa-user.mr-2
                 Editar Cadastro
+              = link_to profile_edit_path, class: 'navbar-item' do
+                %i.fas.fa-user.mr-2
+                Avatar
               .navbar-divider
               = link_to destroy_user_session_path, method: :delete, class: 'navbar-item', data: {confirm: "#{ t 'are_you_sure'}"} do
                 %i.fas.fa-door-open.mr-2
@@ -90,15 +96,7 @@
               %i.fas.fa-pencil-alt.mr-2
               #{ t 'signup' }
 
-        -# .navbar-item
+        .navbar-item
           - if user_signed_in?
             = link_to '#', id: 'modal_language', data: {modal_id: 'user-actions'} do
               = language_user(current_user.language)
-
-        .navbar-item
-          = link_to root_path(lang: 'pt-BR'), class: 'language_image' do
-            = image_tag 'Brazil2.png'
-
-        .navbar-item
-          = link_to root_path(lang: :es), class: 'language_image' do
-            = image_tag 'Spain2.png'
