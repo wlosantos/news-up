@@ -4,26 +4,18 @@ class PostsController < ApplicationController
 
   def index
     if params[:tag]
-      @posts = Post.tagged_with(params[:tag]).order(created_at: :desc)
+      @posts = Post.tagged_with(params[:tag]).order(created_at: :desc).page(params[:page]).per(12)
     else
-      @posts = Post.all
+      @posts = Post.page(params[:page]).per(24)
     end
   end
 
   def list_posts
-    if params[:tag]
-      @posts = Post.tagged_with(params[:tag]).order(created_at: :desc)
-    else
-      @posts = Post.listposts
-    end
+    @posts = Post.listposts.order(created_at: :desc).page(params[:page]).per(12)
   end
 
   def list_videos
-    if params[:tag]
-      @posts = Post.tagged_with(params[:tag]).order(created_at: :desc)
-    else
-      @posts = Post.listvideos
-    end
+    @posts = Post.listvideos.order(created_at: :desc).page(params[:page]).per(12)
   end
 
   def show
