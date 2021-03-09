@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
 
 def show
-  @posts = current_user.posts.list_comments_posts
-  @videos = current_user.posts.list_comments_videos
+  @posts = current_user.posts.comments_post_not_published
+  @videos = current_user.posts.comments_video_not_published
+  # @posts = current_user.posts.list_comments_posts
+  # @videos = current_user.posts.list_comments_videos
 end
 
 def edit

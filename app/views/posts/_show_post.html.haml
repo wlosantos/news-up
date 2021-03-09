@@ -25,7 +25,7 @@
                     %span.ml-2
                       %i.fas.fa-thumbs-down
                   %span.tag
-                    %b.mr-2 #{ @post.comments.count }
+                    %b.mr-2 #{ @post.comments.published.count }
                     #{ t 'comment' }(s) &nbsp;
                     %span
                       %i.fas.fa-comment-alt

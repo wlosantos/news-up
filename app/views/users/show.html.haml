@@ -39,7 +39,7 @@
                         - @posts.each do |post|
                           %tr
                             %td #{ post.id }
-                            %td #{ post.title }
+                            %td= link_to post.title, post
                             %td
                               %table.table.is-striped.is-fullwidth
                                 - post.comments.each do |post_comment|
@@ -62,7 +62,7 @@
                         - @videos.each do |video|
                           %tr
                             %td #{ video.id }
-                            %td #{ video.title }
+                            %td= link_to video.title, post
                             %td
                               %table.table.is-striped.is-fullwidth
                                 - video.comments.each do |video_comment|
