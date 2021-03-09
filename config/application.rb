@@ -26,7 +26,7 @@ module Newsup
 
     config.i18n.available_locales = [:en, :es, 'pt-BR']
     config.time_zone = 'Brasilia'
-    config.i18n.default_locale = 'pt-BR'
+    config.i18n.default_locale = :en
 
     # Configuration for the application, engines, and railties goes here.
     #

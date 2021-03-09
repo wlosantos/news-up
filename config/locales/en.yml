@@ -1,2 +1,10 @@
 en:
   search: Search
+  add: Adicionar
+  are_you_sure: 'Are you sure?'
+  login: Login
+  signup: 'Sign up'
+  forgotyourpassword: 'Forgot your password'
+  back: Back
+  cancel_my_account: 'Cancel my account'
+  language: Language

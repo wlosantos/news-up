@@ -4,9 +4,20 @@
     .wrapper_content
       .wrapper_grids
         .show_content
-          %h1 #{ @post.title }
-          .show_dates.mb-5
-            #{ l @post.created_at, format: :long }
+          .header_content
+            %span
+              %h1 #{ @post.title }
+              .show_dates.mb-5
+              #{ l @post.created_at, format: :long }
+            %span
+              -if user_signed_in? && current_user == @post.user
+                = link_to edit_post_path(@post), class: 'tag is-info' do
+                  %i.fas.fa-edit.mr-2
+                  #{ t 'edit'}
+                = link_to post_path(@post), method: :delete, class: 'tag is-danger ml-2', data: {confirm: "#{t 'are_you_sure?'}"} do
+                  %i.fas.fa-trash.mr-2
+                  #{ t 'delete'}
+
           .show_votable
             %div
               = render 'users/avatar', profile: @post.user

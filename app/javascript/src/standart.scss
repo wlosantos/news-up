@@ -178,3 +178,29 @@
   color: $color-link-clean;
   cursor: pointer;
 }
+
+.pagination {
+  // padding: 1rem;
+
+  .pagination {
+    margin-left: 0;
+    margin: 1rem;
+    max-width: 800px;
+    border-radius: 5px;
+    background: $color-background-base;
+    border: 1px solid $color-link-clean;
+    padding: 0 10px;
+
+    span {
+      padding: 0.5rem;
+    }
+
+    .current {
+      padding: 3px 5px;
+      margin: 2px;
+      background: $color-destaque;
+      color: $color-background-base;
+      border-radius: 3px;
+    }
+  }
+}
