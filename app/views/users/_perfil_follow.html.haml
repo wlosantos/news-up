@@ -14,15 +14,15 @@
   .btn_action.has-text-centered.mt-1
     - if user_signed_in?
       - if current_user != profile
-        - if are_friends(current_user.id, profile)
+        - if are_friends(current_user.id, profile) > 0
           = link_to '#', class: 'btn-amigos button is-primary is-small is-fullwidth' do
             %i.fas.fa-check-circle.mr-3
-            amigos
+            #{t 'friends'}
         - elsif current_user.status_friends(profile) == false
           .action.has-text-white.is-size-5
             = link_to '#', class: 'btn-adicionar button is-info is-small', data:{social_id: profile.id } do
               %i.fas.fa-user-plus.mr-3
-              adicionar
+              #{t 'add'}
         - else
           = link_to '#', class: 'btn-aguardando button is-light is-small is-static' do
-            aguardando ...
+            #{t 'waiting'} ...

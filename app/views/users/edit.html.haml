@@ -4,12 +4,13 @@
     .wrapper_content{style: 'min-height: 600px'}
       .show_edit_user
         .base_edit_user
-          .figure_edit
-            = image_tag current_user.avatar, class: 'photo_user'
+          - if current_user.avatar.attached?
+            .figure_edit
+              = image_tag current_user.avatar, class: 'photo_user'
           = form_with model: current_user, url: profile_path, local: true, class: 'edit-profile' do |form|
             %h1.has-text-centered #{ t 'add_avatar' }
             .field.mt-4
-              = form.label :language, class: 'label'
+              = form.label "#{t 'language'}", class: 'label'
               .control
                 = form.select :language, [['Brazil','pt-BR'],['USA','en'],['Spain','es']]
             .field

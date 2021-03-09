@@ -49,8 +49,9 @@ module ApplicationHelper
   end
 
 # Totais models
-  def are_friends(frd, usr)
-    Friend.reverse_friend(frd, usr) && Friend.friend_reverse(usr, frd)
+  def are_friends(friend, requested)
+    Friend.iam_friends(friend, requested) || Friend.you_are_friends(requested, friend)
+    # Friend.reverse_friend(frd, usr) && Friend.friend_reverse(usr, frd)
   end
 
   def pending_list(user)

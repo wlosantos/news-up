@@ -65,7 +65,7 @@ class PostsController < ApplicationController
     # TODO: Refaturar a pesquisa em categoria
     if params[:q] != '' || params[:q] != nil
 
-      @posts = Post.search(params[:q])
+      @posts = Post.search(params[:q]).page(params[:page]).per(12)
       render :list_posts
 
     else
