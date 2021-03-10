@@ -5,36 +5,8 @@
       .wrapper_grids
         .grid_content.has-background-white{style: 'border-radius: 5px; padding: 1rem'}
           - @posts.each do |post|
-            .video_container
-              = link_to post_path(post) do
-                .video_thumbnail
-                  = get_image(post, 'adjust_image')
-              .video_description
-                .video_avatar
-                  = get_avatar(post.user)
-                .video_detail.ml-3
-                  %div{style: 'flex: 1'}
-                    .video_title
-                      = truncate post.title, length: 50
-                    .video_author
-                      = post.user.name
-                    .video_published
-                      = time_ago_in_words post.created_at
-                  .video_social
-                    .icones.mr-2
-                      .tags.has-addons
-                        %span.tag
-                          #{ post.get_upvotes.size } &nbsp;
-                          %span
-                            %i.fas.fa-thumbs-up
-                        %span.tag
-                          #{ post.get_downvotes.size } &nbsp;
-                          %span
-                            %i.fas.fa-thumbs-down
-                        %span.tag
-                          #{ post.comments.count } &nbsp;
-                          %span
-                            %i.fas.fa-comment-alt
+            - cache post do
+              = render 'videos', post: post
 
         .grid_aside
           = render 'shared/tags'
